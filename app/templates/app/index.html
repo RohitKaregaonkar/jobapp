@@ -3,6 +3,11 @@
     <title>Job Portal</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+   <ul> 
+    {% for j in titles %}
+    <h4> <li> <a href="{%  url 'job_details' forloop.counter0 %} "> {{ j }} </a> </li> </h4>
+    {% endfor %}
+   </ul>
+
 </body>
 </html>

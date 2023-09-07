@@ -28,13 +28,19 @@ def home(request):
         job_list += f"<li><a href='{url}'>{j}</a></li>"
     job_list += "</ul>"
     
-    return HttpResponse(job_list)
+    context = {"titles": job_title}
+    return render(request, "app/index.html", context)
+
 
 def job_details(request, id):
     try:
         if id == 0:
             return redirect(reverse('home'))
-        job_data = f'<h1>{job_title[id]}</h1><h3>{job_description[id]}</h3>'
-        return HttpResponse(job_data)
+        
+        # job_data = f'<h1>{job_title[id]}</h1><h3>{job_description[id]}</h3>'
+        # return HttpResponse(job_data)
+        context = {"job_title": job_title[id], "job_description": job_description[id]}
+        return render(request, "app/job_details.html", context)
+        
     except:
         return HttpResponseNotFound("Not Found")
