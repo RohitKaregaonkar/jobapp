@@ -6,6 +6,8 @@ from app.models import JobPost
 class JobAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'title', 'salary', 'creation_date')
     list_filter = ('creation_date', 'salary', 'title')
+    search_fields = ('title', )
+    search_help_text = "Write Your Query Here and Enter"
 
 
 admin.site.register(JobPost, JobAdmin)
