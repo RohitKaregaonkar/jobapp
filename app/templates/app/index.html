@@ -4,8 +4,12 @@
 </head>
 <body>
    <ul> 
-    {% for j in titles %}
-    <h4> <li> <a href="{%  url 'job_details' forloop.counter0 %} "> {{ j }} </a> </li> </h4>
+    {% for j in jobs %}
+    <h4> 
+        <li> 
+            <a href="{%  url 'job_details' j.id %} "> {{ j }} </a> 
+        </li>
+    </h4>
     {% endfor %}
    </ul>
 

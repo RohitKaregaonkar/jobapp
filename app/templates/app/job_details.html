@@ -4,8 +4,13 @@
 </head>
 <body>
 
-    <h1> {{ job_title }} </h1>
-    <h3> {{ job_description }} </h3>   
+    <a href="{% url 'home' %}">
+        <h4> Home </h4>
+    </a>
+
+    <h1> {{ jobs.title }} </h1>
+    <h3> {{ jobs.description }} </h3>   
+    <h3> {{ jobs.salary }} </h3>
     
 </body>
 </html>
