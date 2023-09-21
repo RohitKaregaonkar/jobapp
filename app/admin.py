@@ -8,6 +8,8 @@ class JobAdmin(admin.ModelAdmin):
     list_filter = ('creation_date', 'salary', 'title')
     search_fields = ('title', )
     search_help_text = "Write Your Query Here and Enter"
+    # fields = (('title', 'description'), 'expiry_date')
+    exclude = ('slug',)
 
 
 admin.site.register(JobPost, JobAdmin)
