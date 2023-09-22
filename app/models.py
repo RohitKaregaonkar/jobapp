@@ -14,6 +14,8 @@ class Authors(models.Model):
     company = models.CharField(max_length=120)
     designation = models.CharField(max_length=120)
 
+class Skills(models.Model):
+    name = models.CharField(max_length=80)
 
 class JobPost(models.Model):
     title = models.CharField(max_length=200)
@@ -24,6 +26,7 @@ class JobPost(models.Model):
     slug = models.SlugField(null=True, max_length=40, unique=True)
     location = models.OneToOneField(Location, on_delete=models.CASCADE, null=True)
     authors = models.ForeignKey(Authors, on_delete=models.CASCADE, null=True)
+    skills = models.ManyToManyField(Skills)
     
     def __str__(self):
         return self.title
