@@ -9,7 +9,10 @@ class Location(models.Model):
     country = models.CharField(max_length=120)
     zip = models.CharField(max_length=120)
 
-
+class Authors(models.Model):
+    name = models.CharField(max_length=120)
+    company = models.CharField(max_length=120)
+    designation = models.CharField(max_length=120)
 
 
 class JobPost(models.Model):
@@ -20,6 +23,7 @@ class JobPost(models.Model):
     salary = models.IntegerField()
     slug = models.SlugField(null=True, max_length=40, unique=True)
     location = models.OneToOneField(Location, on_delete=models.CASCADE, null=True)
+    authors = models.ForeignKey(Authors, on_delete=models.CASCADE, null=True)
     
     def __str__(self):
         return self.title
