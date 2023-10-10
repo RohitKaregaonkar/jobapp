@@ -8,9 +8,15 @@
     <form method="post">
         {% csrf_token %}
 
-        {{ form.as_ul }}
+        <div class="subscribe_field">
+            {{ form.first_name.errors }}
+            <label for="{{ form.first_name.id_for_label }}"> {{ form.first_name.label }} </label>
+            {{ form.first_name }}
+        </div>
 
-        <input type="submit" value="Submit" />
+        {% comment %} {{ form.as_ul }}
+
+        <input type="submit" value="Submit" /> {% endcomment %}
 
         {% comment %} {% csrf_token %}
 
