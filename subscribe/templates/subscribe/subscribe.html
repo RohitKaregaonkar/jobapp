@@ -8,11 +8,22 @@
     <form method="post">
         {% csrf_token %}
 
+        {% for field in form %}
         <div class="subscribe_field">
+            {{ field.errors }}
+            <label for ="{{field.id_for_label}}">
+                {{ field.label}}
+            </label>
+            {{ field }}
+        </div>
+        {% endfor %}
+
+
+        {% comment %} <div class="subscribe_field">
             {{ form.first_name.errors }}
             <label for="{{ form.first_name.id_for_label }}"> {{ form.first_name.label }} </label>
             {{ form.first_name }}
-        </div>
+        </div> {% endcomment %}
 
         {% comment %} {{ form.as_ul }}
 
