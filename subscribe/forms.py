@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 from subscribe.models import Subscribe
 
 class SubscribeForm(forms.ModelForm):
@@ -6,7 +7,19 @@ class SubscribeForm(forms.ModelForm):
         model =  Subscribe
         # fields = ['first_name', 'last_name', 'email']
         fields = '__all__'
-        
+        # exclude = ('first_name',)
+        labels = {
+            'first_name': _('First Name'),
+            'last_name': _('Last Name')
+        }
+        error_messages = {
+            'first_name': {
+                'required': _('Compulsory Field')
+            }
+        }
+        help_texts = {
+            'first_name': _('Enter Characters Only')
+        }
 
 
 # def validate_comma(value):
