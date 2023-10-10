@@ -1,5 +1,9 @@
 from django import forms
 
+def validate_comma(value):
+    if "," in value:
+        raise forms.ValidationError("Invalid Name")
+    return value
 
 class SubscribeForm(forms.Form):
     first_name = forms.CharField(max_length=100, label="First Name", help_text="Enter First Name")
