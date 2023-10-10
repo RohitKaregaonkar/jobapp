@@ -7,8 +7,8 @@ def validate_comma(value):
 
 class SubscribeForm(forms.Form):
     first_name = forms.CharField(max_length=100, label="First Name", help_text="Enter First Name")
-    last_name = forms.CharField(max_length=100, required=False)
-    email = forms.EmailField(max_length=100, disabled=True)
+    last_name = forms.CharField(max_length=100, required=False, validators=[validate_comma])
+    email = forms.EmailField(max_length=100, disabled=True, validators=[validate_comma])
     
     def clean_first_name(self):
         data = self.cleaned_data['first_name']
