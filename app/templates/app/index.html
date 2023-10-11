@@ -1,25 +1,5 @@
 {% load static %}
 
-{% comment %} <html>
-<head>
-    <title>Job Portal</title>
-</head>
-<body>
-   <ul> 
-    {% for j in jobs %}
-    <h4> 
-        <li> 
-            <a href="{%  url 'job_details' j.id %} "> {{ j }} </a> 
-        </li>
-    </h4>
-    {% endfor %}
-   </ul>
-
-</body>
-</html> {% endcomment %}
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
