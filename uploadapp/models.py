@@ -9,7 +9,7 @@ class Uploads(models.Model):
         return self.description
     
     
-class UploadFiles(models.Model):
+class UploadFile(models.Model):
     file = models.FileField(upload_to="files")
     description = models.CharField(max_length=100)
     

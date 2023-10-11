@@ -12,3 +12,4 @@ def upload_image(request):
     else:
         form = UploadForm()
     return render(request, 'uploadapp/add_image.html', {'form': form})
+
