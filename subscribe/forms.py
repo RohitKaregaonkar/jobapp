@@ -10,16 +10,17 @@ class SubscribeForm(forms.ModelForm):
         # exclude = ('first_name',)
         labels = {
             'first_name': _('First Name'),
-            'last_name': _('Last Name')
+            'last_name': _('Last Name'),
+            'option': _('Subscription Option'),
         }
         error_messages = {
             'first_name': {
                 'required': _('Compulsory Field')
             }
         }
-        help_texts = {
-            'first_name': _('Enter Characters Only')
-        }
+        # help_texts = {
+        #     'first_name': _('Enter Characters Only')
+        # }
 
 
 # def validate_comma(value):
