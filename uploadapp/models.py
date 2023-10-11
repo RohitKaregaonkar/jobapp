@@ -7,3 +7,11 @@ class Uploads(models.Model):
     
     def __str__(self):
         return self.description
+    
+    
+class UploadFiles(models.Model):
+    file = models.FileField(upload_to="files")
+    description = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.description
