@@ -17,7 +17,7 @@ def upload_image(request):
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             saved_object = form.instance
             return render(request, 'uploadapp/add_file.html', {'form': form,'saved_object': saved_object})
