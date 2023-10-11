@@ -18,8 +18,13 @@ class Skills(models.Model):
     name = models.CharField(max_length=80)
 
 class JobPost(models.Model):
+    Job_Type_Choices = [
+        ('Full Time', 'Full Time'),
+        ('Part Time', 'Part Time'),
+        ('Internship', 'Internship')
+    ]
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=400)
+    description = models.TextField()
     creation_date = models.DateTimeField(auto_now_add=True)
     expiry_date =  models.DateTimeField(null=True)
     salary = models.IntegerField()
@@ -27,6 +32,7 @@ class JobPost(models.Model):
     location = models.OneToOneField(Location, on_delete=models.CASCADE, null=True)
     authors = models.ForeignKey(Authors, on_delete=models.CASCADE, null=True)
     skills = models.ManyToManyField(Skills)
+    job_type = models.CharField(max_length=100, null=False, choices=Job_Type_Choices)
     
     def __str__(self):
         return self.title

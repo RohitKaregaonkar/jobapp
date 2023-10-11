@@ -59,23 +59,25 @@
                     <h1 class="job-title">{{ j.title }}</h1>
                     <div class="job-des">
                     <div class="location item">
-                        <span class="material-icons"> Place </span>
+                        <span class="material-icons"> place </span>
                         <p>{{ j.location.city }}</p>
                     </div>
                     <div class="budget item">
-                        <span class="material-icons"> Salary </span>
+                        <span class="material-icons"> attach_money </span>
                         <p>{{ j.salary }}/Pm</p>
                     </div>
                     <div class="time item">
-                        <span class="material-icons"> Schedule </span>
-                        <p>Full Time</p>
+                        <span class="material-icons"> schedule </span>
+                        <p>{{ j.job_type }}</p>
                     </div>
                     </div>
                 </div>
                 <div class="buttons">
-                    <button class="apply">
-                    <a href="{% url 'job_details' forloop.counter %}">View Job</a>
-                    </button>
+                    <a href="{% url 'job_details' forloop.counter %}">
+                        <button class="apply">
+                            View Job
+                        </button>
+                    </a>
                 </div>
                 </div>
             {% endfor %}
