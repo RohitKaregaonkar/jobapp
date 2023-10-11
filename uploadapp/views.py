@@ -20,7 +20,7 @@ def upload_file(request):
         if form.is_valid:
             form.save()
             saved_object = form.instance
-            return render(request, 'uploadapp/add_image.html', {'form': form,'saved_object': saved_object})
+            return render(request, 'uploadapp/add_file.html', {'form': form,'saved_object': saved_object})
     else:
         form = UploadFileForm()
-    return render(request, 'uploadapp/add_image.html', {'form': form})
+    return render(request, 'uploadapp/add_file.html', {'form': form})
